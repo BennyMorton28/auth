@@ -69,11 +69,19 @@
   </div>
 
   <div class="navigation">
+  <%@user = User.find_by({"id" => cookies["user_id"]})%>
+
+  <% if @user == nil %>
+
     <a href="/users/new">Sign Up</a>
     |
     <a href="/login">Login</a>
+
+    <%else%>
+    Hey, <%=@user["first_name"]%>
     |
     <a href="/logout">Logout</a>
+    <%end%>
   </div>
 
   <div class="content">
