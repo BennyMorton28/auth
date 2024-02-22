@@ -1,29 +1,88 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>ENTR451: User Security</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>ENTR451: User Security</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "application" %>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #262626;
+      color: #f0f0f0;
+    }
 
-    <%= stylesheet_link_tag "application" %>
-  </head>
+    .header {
+      background-color: #404040;
+      color: #00bcd4;
+      padding: 10px 0;
+      text-align: center;
+      font-size: 24px;
+    }
 
-  <body>
-    <p>
-      <!-- if no user logged-in, display signup and login links -->
-      <!-- else, if user logged-in, display user name and logout link -->
-      <a href="/users/new">Sign Up</a>
-      |
-      <a href="/login">Login</a>
-      |
-      <a href="/logout">Logout</a>
-    </p>
+    .navigation {
+      text-align: center;
+      margin: 20px 0;
+    }
 
-    <p>
-      <%= flash["notice"] %>
-    </p>
+    .navigation a {
+      color: #00bcd4;
+      text-decoration: none;
+      margin: 0 10px;
+      padding: 5px 10px;
+      background-color: #333333;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+    }
 
+    .navigation a:hover {
+      background-color: #00bcd4;
+      color: #262626;
+    }
+
+    .content {
+      margin: 20px;
+      padding: 20px;
+      background-color: #333333;
+      border-radius: 5px;
+      color: #f0f0f0;
+    }
+
+    .footer {
+      background-color: #404040;
+      color: #00bcd4;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <h1>ENTR451: User Security</h1>
+  </div>
+
+  <div class="navigation">
+    <a href="/users/new">Sign Up</a>
+    |
+    <a href="/login">Login</a>
+    |
+    <a href="/logout">Logout</a>
+  </div>
+
+  <div class="content">
+    <p><%= flash["notice"] %></p>
     <%= yield %>
-  </body>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2024 Ben Morton</p>
+  </div>
+</body>
 </html>
